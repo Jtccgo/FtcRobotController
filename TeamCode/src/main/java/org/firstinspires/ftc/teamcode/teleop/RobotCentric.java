@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name = "RobotCentric", group = "drive")
 public class RobotCentric extends LinearOpMode {
@@ -12,6 +13,8 @@ public class RobotCentric extends LinearOpMode {
     private DcMotorEx frm;
     private DcMotorEx blm;
     private DcMotorEx brm;
+
+    private Servo ex;
 
     @Override
     public void runOpMode() {
@@ -21,7 +24,6 @@ public class RobotCentric extends LinearOpMode {
         frm.setDirection(DcMotorEx.Direction.REVERSE);
         blm = hardwareMap.get(DcMotorEx.class, "bl");
         brm = hardwareMap.get(DcMotorEx.class, "br");
-        brm.setDirection(DcMotorSimple.Direction.REVERSE);
 
         flm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
